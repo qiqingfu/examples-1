@@ -14,6 +14,12 @@ class TopicsController extends Controller {
     };
   }
 
+  /**
+   * GET /api/v1/topics/:id
+   * - params.id - Number
+   * - params.mdrender - Boolean
+   * - params.accesstoken - String
+   */
   async show() {
     const { ctx } = this;
 
@@ -24,6 +30,9 @@ class TopicsController extends Controller {
     });
   }
 
+  /**
+   * GET /api/v2/topics
+   */
   async index() {
     const { ctx } = this;
 
@@ -41,6 +50,14 @@ class TopicsController extends Controller {
     });
   }
 
+  /**
+   * POST /api/v1/topics
+   *
+   * accesstoken - String - required
+   * title - String - required
+   * tab - String
+   * content - String - required
+   */
   async create() {
     const { ctx } = this;
     ctx.validate(this.createRule);
@@ -52,6 +69,14 @@ class TopicsController extends Controller {
     ctx.status = 201;
   }
 
+  /**
+   * PUT /api/v2/topics/:id
+   *
+   * accesstoken - String - required
+   * title - String - required
+   * tab - String
+   * content - String - required
+   */
   async update() {
     const { ctx } = this;
     const id = ctx.params.id;
