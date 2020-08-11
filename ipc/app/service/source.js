@@ -13,6 +13,8 @@ class Source extends Service {
 
   async checkUpdate() {
     // check if remote data source has changed
+    // 检查远端数据源是否已更改
+    // 随机的 updated 值
     const updated = await mockCheck();
     this.ctx.logger.info('check update response %s', updated);
     return updated;
@@ -20,6 +22,7 @@ class Source extends Service {
 
   async update() {
     // update memory cache from remote
+    // 从远程更新内存缓存
     memoryCache = await mockFetch();
     this.ctx.logger.info('update memory cache from remote: %j', memoryCache);
   }
